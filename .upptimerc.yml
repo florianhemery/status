@@ -1,31 +1,34 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Upptime configuration for the public status page of florianhemery.fr.
+# Checks run from GitHub Actions every 5 minutes, outside the production server.
+owner: florianhemery
+repo: status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Site
+    url: https://florianhemery.fr
+  - name: Assistant (API)
+    url: https://florianhemery.fr/api/v1/health
+    expectedStatusCodes:
+      - 200
+  - name: Technique
+    url: https://florianhemery.fr/technique
+
+assignees:
+  - florianhemery
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  baseUrl: /status
+  logoUrl: https://florianhemery.fr/favicon.ico
+  name: État de florianhemery.fr
+  introTitle: "État du site et de l'assistant"
+  introMessage: "Vérification toutes les 5 minutes, depuis un serveur indépendant du site."
   navbar:
-    - title: Status
+    - title: État
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+    - title: Le site
+      href: https://florianhemery.fr
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+commitMessages:
+  readmeContent: ":pencil: Update summary in README"
+  summaryJob: ":card_file_box: Update status summary"
+  statusChange: "$EMOJI $SITE_NAME is $STATUS ($RESPONSE_CODE in $RESPONSE_TIME ms)"
